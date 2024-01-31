@@ -1,0 +1,65 @@
+public class Drinks extends Product implements VendingMinterface, FilePersistence {
+    private double totalprice;
+    private int totalqty;
+    Drinks[] drink = new Drinks[4];
+
+    Drinks() {
+        drink[0] = new Drinks("Cola", super.getQty(), 20, totalprice, 20);
+        drink[1] = new Drinks("Tea", super.getQty(), 25, totalprice, 10);
+        drink[2] = new Drinks("Coffee", super.getQty(), 30, totalprice, 12);
+        drink[3] = new Drinks("Milk", super.getQty(), 15, totalprice, 15);
+    }
+
+    public Drinks(String pname, int qty, double price, double tprice, int totalqty) {
+        super(pname, qty, price);
+        this.totalprice = tprice;
+        this.totalqty = totalqty;
+    }
+
+    Drinks[] getItems() {
+        return drink;
+    }
+
+    public String getName() {
+        return super.getPname();
+    }
+
+    public double getPrice() {
+        return super.getPrice();
+    }
+
+    public int getTotalqty() {
+        return totalqty;
+    }
+
+    @Override
+    public void qtycheck(int qty, int tqty) {
+        int toqty = tqty - qty;
+        if (toqty < 0) {
+            throw new NotEnoughProductException("we don't have enough product");
+        }
+    }
+
+    @Override
+    public void display() {
+        System.out.format("%-9s %d pieces %5.2f Baht \n", super.getPname(), super.getQty(), totalprice);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%-9s %d pieces %5.2f Baht \n", super.getPname(), super.getQty(), totalprice);
+    }
+
+    @Override
+    public int compareTo(Drinks other) {
+        return 1;
+    }
+
+    public int compareTo(Food other) {
+        if (this.totalqty < other.getTotalqty()) {
+            return 1;
+        }
+        return 0;
+    }
+
+}

@@ -1,0 +1,9 @@
+drink Cola 5 can,
+food Chips 6 pieces,
+drink Coffee 2 can,
+food Chocolate 4 pieces,
+food Cookie 10 pieces,
+dink Tea 3 can
+All the coins put in are:
+0oneBahtCoin 0fiveBahtCoin 2tenBahtCoin 5hundredBahtCoin
+

@@ -1,0 +1,50 @@
+public class Change extends Coin implements FilePersistence {
+    private double change;
+
+    private double value;
+    Scanner in = new Scanner(System.in);
+
+    Change(int oneBaht, int twoBaht, int fiveBaht, int tenBaht) {
+        super(oneBaht, twoBaht, fiveBaht, tenBaht);
+    }
+
+    public double getChange(double amount) {
+        change = super.getValue() - amount;
+        return change;
+    }
+
+    public void checkChange(double amount) {
+        if (super.getValue() - amount > 0) {
+            System.out.println("here is your change :" + getChange(amount) + "Baht");
+        } else if (super.getValue() - amount == 0) {
+            System.out.println("The money you gave matches the price of the products.");
+        } else if (super.getValue() - amount < 0) {
+            String pre;
+            System.out.println("add more coin");
+            System.out.println("The money you gave is not enough for products give us another " + (amount - super.getValue()) + "Baht");
+            System.out.println("you have enough money to add more?(y or n)");
+            pre = in.nextLine();
+            if (pre.charAt(0) == 'y') {
+                System.out.println(" (1Baht 5Baht 10Baht 100Baht)");
+                pre = in.next();
+                int oneB = Integer.parseInt(pre);
+                pre = in.next();
+                int fiveB = Integer.parseInt(pre);
+                pre = in.next();
+                int tenB = Integer.parseInt(pre);
+                pre = in.next();
+                int hunB = Integer.parseInt(pre);
+                int total = (oneB * 1) + (fiveB * 5) + (tenB * 10) + (hunB * 100);
+                if (total + super.getValue() - amount > 0) {
+                    System.out.println("here is your change :" + (total + super.getValue() - amount) + "Baht");
+                }
+                if (total + super.getValue() - amount == 0) {
+                    System.out.println("The money you gave matches the price of the products.");
+                }
+            } else if (pre.charAt(0) == 'n') {
+                System.exit(-1);
+            }
+        }
+    }
+
+}

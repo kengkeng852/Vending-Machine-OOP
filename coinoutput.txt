@@ -1,0 +1,36 @@
+public class Coin implements FilePersistence {
+    private int oneBaht;
+    private int fiveBaht;
+    private int tenBaht;
+    private int hundredBaht;
+    private int value;
+
+    public Coin(int oneBaht, int fiveBaht, int tenBaht, int hundredBaht) {
+        this.oneBaht = oneBaht;
+        this.fiveBaht = fiveBaht;
+        this.tenBaht = tenBaht;
+        this.hundredBaht = hundredBaht;
+    }
+
+    public int getOneBath() {
+        return oneBaht;
+    }
+
+    public int getFiveBath() {
+        return fiveBaht;
+    }
+
+    public int getTenBath() {
+        return tenBaht;
+    }
+
+    public int getHundredBaht() {
+        return hundredBaht;
+    }
+
+    public int getValue() {
+        value = (oneBaht * 1) + (fiveBaht * 5) + (tenBaht * 10) + (hundredBaht * 100);
+        return this.value;
+    }
+
+}
