@@ -3,7 +3,6 @@ vending machine using java
 This application can let user to buy foods and drinks by type an input or read input.txt file to order and got a receipt.
 Run on DemoVM.java
 Example of input and output:
-
 Welcome to our Vending Machine
 You want to add food(1) or drinks(2)
 1
@@ -19,7 +18,7 @@ Sandwich  10 pieces  250.0Baht
 want to add more product to cart? (type y or n): 
 n
 -------------------------------------------------
-                    Order 
+Order
 Food :
 Sandwich  10 pieces 250.00 Baht 
 Total Price :250.0
@@ -44,7 +43,7 @@ All the coins put in are:
 
 Output.txt file: 
 -------------------------------------------------
-                    Order 
+Order
 Food :
 Chips     6 pieces 90.00 Baht 
 Chocolate 4 pieces 40.00 Baht 
